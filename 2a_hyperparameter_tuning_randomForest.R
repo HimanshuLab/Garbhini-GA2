@@ -5,22 +5,16 @@
 # Veerendra P Gadekar 
 # Email: ic36871@imail.iitm.ac.in; gpveerendra09@gmail.com
 
-# script generate random forest models
+# script for hyperparameter tuning of RandomForest using grid search
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 library(openxlsx)
 library(data.table)
 require(ranger) #for Random Forest model
-library(randomforest)
-library(dplyr)
+library(randomForest)
 library(tidyverse)
-require(xgboost) #for XG Boost model
-library(BlandAltmanLeh) #for bland-altman analysis
-library(reshape2)
 library(gridExtra)
-library(tidyverse)
-library(haven)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
