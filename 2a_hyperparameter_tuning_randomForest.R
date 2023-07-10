@@ -22,7 +22,7 @@ seed_value <- 666
 seed_range <- 100:599
 
 datadir <- "./data/"
-#outdir <- "./results"
+outdir <- "./results/"
 log_ga_file <- "./data/extended_input_set/dbscan_train_log_ga.xlsx"
 log_ga = subset(read.xlsx(log_ga_file), select = -c(X1));                   
 train_file <- "./data/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx"
