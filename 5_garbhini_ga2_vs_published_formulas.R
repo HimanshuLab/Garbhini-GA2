@@ -191,6 +191,9 @@ write.table(cmcv_garbhiniga2_vs_ga_df,
   paste(outdir2, "gold_standard_vs_GarbhiniGA2_cmcv_diff.tsv", sep = ""),
   sep = "\t", row.names = F, quote = F)
 
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 # garbhini
 pdf(paste(outdir, "parity_plot_Garbhini_Validation_hadlock_vs_gold.pdf", sep=""), h=8, w=8)
 ggplot(subset(garbhini_predictions, formula %in% c("Hadlock")), aes(x = ga,y = ga_predicted)) + 
@@ -483,3 +486,6 @@ plot_preterm_g
 pdf(paste(outdir, "gold_vs_garbhini_ga2.pdf", sep=""), h=6, w=7)
 plot_preterm_g
 dev.off()
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
