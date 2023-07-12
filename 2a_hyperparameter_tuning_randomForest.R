@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript 
+args = commandArgs(trailingOnly=TRUE)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -21,14 +22,15 @@ library(gridExtra)
 seed_value <- 666
 seed_range <- 100:599
 
-datadir <- "./data/"
-outdir <- "./results/"
-log_ga_file <- "./data/extended_input_set/dbscan_train_log_ga.xlsx"
-log_ga = subset(read.xlsx(log_ga_file), select = -c(X1));                   
-train_file <- "./data/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx"
+data_dir <- args[1];
+out_dir <- args[2];
+
+log_ga_file <- paste(data_dir, "/dbscan_train_log_ga.xlsx", sep = "")
+log_ga <- subset(read.xlsx(log_ga_file), select = -c(X1));                   
+train_file <- paste(data_dir, "/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx", sep = "")
 train_data <- subset(read.xlsx(train_file),  select = -c(X1))
 train <- setDT(cbind(log_ga, train_data)); setnames(train, old = "x", new = "logGA")
-figures <- "./results/figures/"
+figures <- paste(out_dir, "/figures/", sep = "")
 
 hyper_grid <- expand.grid(
   mtry       = seq(3, 15, by = 1),
@@ -60,8 +62,8 @@ model <-
         seed            = 123)
     })
 
-hyper_grid$OOB_RMSE = unlist(lapply(model, function(x) x$prediction.error))
-hyper_grid = setDT(hyper_grid)[order(OOB_RMSE)]
+hyper_grid$OOB_RMSE <- unlist(lapply(model, function(x) x$prediction.error))
+hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 
 write.table(hyper_grid, paste(outdir,"hyper_grid_RF.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 write.table(train, paste(datadir,"RF_XGB_train_data.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
