@@ -19,15 +19,15 @@ library(data.table)
 
 # change the path according to the working directory
 
-#data_dir    <- '/home/veer/scratch/IBSE/GarbhIni2/Garbhini-GA2-main/development/data/';
+#data_dir <- '/home/veer/scratch/IBSE/GarbhIni2/Garbhini-GA2-main/development/data/';
 #out_dir <- '/home/veer/scratch/IBSE/GarbhIni2/Garbhini-GA2-main/development/data/input_for_gapolyfitn_matlab/';
-data_dir    <- args[1];
+data_dir <- args[1];
 out_dir <- args[2];
 
 
 # input files
 dbscan_train <- paste(data_dir, 'train_23_dbscan.tsv', sep = "");
-dbscan_train = fread(dbscan_train)
+dbscan_train <- fread(dbscan_train)
 
 # ga
 ga <- dbscan_train$ga
