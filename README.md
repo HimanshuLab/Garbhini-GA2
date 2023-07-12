@@ -5,3 +5,7 @@ Script repository for the Garbhini-GA2 manuscript
 ```{r, engine = 'bash', eval = FALSE}
 Rscript 1a_data_preparation.R ./data/ ./results/
 ```
+#### 2. Script used to generate the extended input data set used to train models 
+```{r, engine = 'bash', eval = FALSE}
+Rscript 1b_generated_extended_input_data.R ./data/ ./data/extended_input_set/
+```
