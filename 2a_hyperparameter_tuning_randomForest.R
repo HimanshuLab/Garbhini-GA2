@@ -69,10 +69,10 @@ hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 # values of mtry, min.node.size, sample.fraction taken from the results from the hyper grid
 # from the above step
 
-print("Selected Hyperparameters:\n")
-print("mtry: "hyper_grid$mtry[1]"\n")
-print("min.node.size: "hyper_grid$min.node.size[1]"\n")
-print("sample.fraction: "hyper_grid$sample.fraction[1]"\n")
+print("Selected Hyperparameters:")
+print(paste("mtry: ", hyper_grid$mtry[1], sep = ""))
+print(paste("min.node.size: ", hyper_grid$min.node.size[1], sep = ""))
+print(paste("sample.fraction: ", hyper_grid$sample.fraction[1], sep = ""))
 
 OOB_RMSE <- vector(mode = "numeric", length = 100)
 for (i in seq_along(OOB_RMSE)) {
