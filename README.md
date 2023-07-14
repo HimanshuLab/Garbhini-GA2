@@ -8,5 +8,6 @@ Rscript 1b_generated_extended_input_data.R ./data/ ./data/extended_input_set/ #g
 ```
 #### 2. Randomforest and XGBoost hyperparameter tuning
 ```{r, engine = 'bash', eval = FALSE}
-Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/ 
+Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/
+Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
 ```
