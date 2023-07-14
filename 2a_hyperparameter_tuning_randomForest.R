@@ -35,7 +35,7 @@ figures <- paste(out_dir, "/figures/", sep = "")
 hyper_grid <- expand.grid(
   mtry       = seq(3, 15, by = 1),
   node_size  = seq(3, 10, by = 1),
-  sampe_size = c(.55, .632, .70, .80),
+  sample_size = c(.55, .632, .70, .80),
   OOB_RMSE   = 0
 )
 
@@ -58,7 +58,7 @@ model <-
         num.trees       = 100,
         mtry            = y["mtry"],
         min.node.size   = y["node_size"],
-        sample.fraction = y["sampe_size"],
+        sample.fraction = y["sample_size"],
         seed            = 123)
     })
 
@@ -71,8 +71,8 @@ hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 
 print("Selected Hyperparameters:")
 print(paste("mtry: ", hyper_grid$mtry[1], sep = ""))
-print(paste("min.node.size: ", hyper_grid$min.node.size[1], sep = ""))
-print(paste("sample.fraction: ", hyper_grid$sample.fraction[1], sep = ""))
+print(paste("min.node.size: ", hyper_grid$node_size[1], sep = ""))
+print(paste("sample.fraction: ", hyper_grid$sample_size[1], sep = ""))
 
 OOB_RMSE <- vector(mode = "numeric", length = 100)
 for (i in seq_along(OOB_RMSE)) {
@@ -81,8 +81,8 @@ for (i in seq_along(OOB_RMSE)) {
     data            = train, 
     num.trees       = 100,
     mtry            = hyper_grid$mtry[1],
-    min.node.size   = hyper_grid$min.node.size[1],
-    sample.fraction = hyper_grid$sample.fraction[1],
+    min.node.size   = hyper_grid$node_size[1],
+    sample.fraction = hyper_grid$sample_size[1],
     importance      = 'impurity'
   )
   OOB_RMSE[i] <- sqrt(optimal_ranger$prediction.error)
