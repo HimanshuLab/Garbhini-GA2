@@ -66,8 +66,8 @@ hyper_grid$OOB_RMSE <- unlist(lapply(model, function(x) x$prediction.error))
 hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 
 # distribution of RMSE values in 100 iterations
-# values of mtry, min.node.size, sample.fraction taken from the results from the hyper grid
-# from the above step
+# values of mtry, min.node.size, sample.fraction resulting the lowest OOB RMSE is
+# taken from the results from the hyper grid from the above step
 
 print("Selected Hyperparameters:")
 print(paste("mtry: ", hyper_grid$mtry[1], sep = ""))
