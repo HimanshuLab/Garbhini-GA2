@@ -90,6 +90,13 @@ for (i in 1:nrow(hyper_grid)) {
 
 hyper_grid <- hyper_grid %>% dplyr::arrange(min_RMSE)
 
+print("Selected Hyperparameters:")
+print(paste("ets: ", hyper_grid$eta[1], sep = ""))
+print(paste("max_depth: ", hyper_grid$max_depth[1], sep = ""))
+print(paste("min_child_weight: ", hyper_grid$min_child_weight[1], sep = ""))
+print(paste("subsample: ", hyper_grid$subsample[1], sep = ""))
+print(paste("colsample_bytree: ", hyper_grid$colsample_bytree[1], sep = ""))
+
 write.table(hyper_grid, paste(out_dir,"hyper_grid_xgboost.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
