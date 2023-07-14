@@ -25,7 +25,7 @@ seed_range <- 100:599
 data_dir <- args[1];
 out_dir <- args[2];
 
-log_ga_file <- paste(data_dir, "/dbscan_train_log_ga.xlsx", sep = "")
+log_ga_file <- paste(data_dir, "/extended_input_set/dbscan_train_log_ga.xlsx", sep = "")
 log_ga <- subset(read.xlsx(log_ga_file), select = -c(X1));                   
 train_file <- paste(data_dir, "/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx", sep = "")
 train_data <- subset(read.xlsx(train_file),  select = -c(X1))
