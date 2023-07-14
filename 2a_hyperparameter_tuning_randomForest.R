@@ -12,7 +12,7 @@ args = commandArgs(trailingOnly=TRUE)
 
 library(openxlsx)
 library(data.table)
-require(ranger) #for Random Forest model
+library(ranger) #for Random Forest model
 library(randomForest)
 library(tidyverse)
 library(gridExtra)

@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript 
+args = commandArgs(trailingOnly=TRUE)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -17,14 +18,15 @@ library(tidyverse)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-datadir <- "./data/"
-outdir <- "./results/"
-log_ga_file <- "./data/extended_input_set/dbscan_train_log_ga.xlsx"
-log_ga = subset(read.xlsx(log_ga_file), select = -c(X1));                   
-train_file <- "./data/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx"
+data_dir <- args[1];
+out_dir <- args[2];
+
+log_ga_file <- paste(data_dir, "/extended_input_set/dbscan_train_log_ga.xlsx", sep = "")
+log_ga <- subset(read.xlsx(log_ga_file), select = -c(X1));                   
+train_file <- paste(data_dir, "/extended_input_set/dbscan_train_data_classic_log_sqrt.xlsx", sep = "")
 train_data <- subset(read.xlsx(train_file),  select = -c(X1))
 train <- setDT(cbind(log_ga, train_data)); setnames(train, old = "x", new = "logGA")
-figures <- "./results/figures/"
+figures <- paste(out_dir, "/figures/", sep = "")
 
 features <- colnames(train_data)
 # Create the treatment plan from the training data
@@ -88,7 +90,7 @@ for (i in 1:nrow(hyper_grid)) {
 
 hyper_grid <- hyper_grid %>% dplyr::arrange(min_RMSE)
 
-write.table(hyper_grid, paste(outdir,"hyper_grid_xgboost.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
+write.table(hyper_grid, paste(out_dir,"hyper_grid_xgboost.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
