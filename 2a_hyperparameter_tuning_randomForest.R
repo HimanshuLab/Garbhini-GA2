@@ -46,7 +46,7 @@ RFmodel <- randomForest(
 
 pdf(paste(figures,"Out-Of-Bag_MSE_across_ntrees.pdf", sep = ""))
 plot(RFmodel, main = "Out-Of-Bag error plot Random Forest")
-abline(v = which.min(RFmodel$mse), lty = 2, col = "red")
+abline(v = 100, lty = 2, col = "red")
 dev.off()
 
 model <- 
@@ -55,7 +55,7 @@ model <-
       ranger(
         formula         = logGA ~ ., 
         data            = train, 
-        num.trees       = which.min(RFmodel$mse),
+        num.trees       = 100,
         mtry            = y["mtry"],
         min.node.size   = y["node_size"],
         sample.fraction = y["sampe_size"],
