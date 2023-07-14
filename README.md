@@ -11,6 +11,6 @@ Rscript 1b_generated_extended_input_data.R ./data/ ./data/extended_input_set/ #g
 Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/
 Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
 ```
-#### 2. Run gapolyfitn in MATLAB
+#### 3. Run gapolyfitn in MATLAB
 ```{r, engine = 'matlab', eval = FALSE}
 ```
