@@ -46,6 +46,9 @@ RFmodel <- randomForest(
 
 pdf(paste(figures,"Out-Of-Bag_MSE_across_ntrees.pdf", sep = ""))
 plot(RFmodel, main = "Out-Of-Bag error plot Random Forest")
+# we select num.trees 100 because 
+# the performance gains with adding more trees is very less
+# as we have only a few features to work with
 abline(v = 100, lty = 2, col = "red")
 dev.off()
 
