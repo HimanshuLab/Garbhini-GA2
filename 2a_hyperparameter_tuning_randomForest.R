@@ -65,8 +65,8 @@ model <-
 hyper_grid$OOB_RMSE <- unlist(lapply(model, function(x) x$prediction.error))
 hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 
-write.table(hyper_grid, paste(outdir,"hyper_grid_RF.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
-write.table(train, paste(datadir,"RF_XGB_train_data.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
+write.table(hyper_grid, paste(out_dir,"hyper_grid_RF.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
+write.table(train, paste(data_dir,"RF_XGB_train_data.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
