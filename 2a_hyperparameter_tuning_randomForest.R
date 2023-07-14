@@ -65,6 +65,27 @@ model <-
 hyper_grid$OOB_RMSE <- unlist(lapply(model, function(x) x$prediction.error))
 hyper_grid <- setDT(hyper_grid)[order(OOB_RMSE)]
 
+# distribution of RMSE values in 100 iterations
+# values of mtry, min.node.size, sample.fraction taken from the results from the hyper grid
+# from the above step
+
+OOB_RMSE <- vector(mode = "numeric", length = 100)
+for (i in seq_along(OOB_RMSE)) {
+  optimal_ranger <- ranger(
+    formula         = logGA ~ ., 
+    data            = train, 
+    num.trees       = 100,
+    mtry            = 3,
+    min.node.size   = 10,
+    sample.fraction = .55,
+    importance      = 'impurity'
+  )
+  OOB_RMSE[i] <- sqrt(optimal_ranger$prediction.error)
+}
+pdf(paste(figures,"RMSE_distribution_100_iteration_RF.pdf", sep = ""))
+hist(OOB_RMSE,breaks = 20)
+dev.off()
+
 write.table(hyper_grid, paste(out_dir,"hyper_grid_RF.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 write.table(train, paste(data_dir,"RF_XGB_train_data.tsv", sep = "/"), sep = "\t", row.names = F, quote = F)
 
