@@ -1,19 +1,27 @@
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+% Veerendra P Gadekar 
+% Email: ic36871@imail.iitm.ac.in; gpveerendra09@gmail.com
+
+% script to run gapolyfitn iteratively 
+% with different maxterm and maxpower parameters
+
 %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-% path to gapolyfitn packages
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/gapolyfitndir/
+% please provide the path to gapolyfitn packages below
+addpath /path/to/gapolyfitn/gapolyfitndir/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/gfit2/
+addpath /path/to/gapolyfitn/gfit2/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/randMat/
+addpath /path/to/gapolyfitn/randMat/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/Polyfitn/
+addpath /path/to/gapolyfitn/Polyfitn/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/GAToolbox/UoS-CODeM-GA-Toolbox-8ca5c5c/
+addpath /path/to/gapolyfitn/GAToolbox/UoS-CODeM-GA-Toolbox-8ca5c5c/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/Polyfitn/PolyfitnTools/
+addpath /path/to/gapolyfitn/Polyfitn/PolyfitnTools/
 savepath
-addpath /home/veer/scratch/IBSE/GarbhIni2/gapolyfitn/multicore/
+addpath /path/to/gapolyfitn/multicore/
 savepath
 
 %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
