@@ -31,3 +31,8 @@ bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classi
 (cat ./results/gapolyfitn_formulas_consistent_1.txt; exec 0<./results/gapolyfitn_formulas_consistent_2.txt; read HEADER; cat; exec 0<./results/gapolyfitn_formulas_consistent_3.txt; read HEADER; cat) > ./results/gapolyfitn_formulas_consistent.txt
 ```
 
+#### 4. Performance evaluation of all the models
+```bash
+Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/
+Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
+```
