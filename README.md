@@ -33,6 +33,10 @@ bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classi
 
 #### 4. Performance evaluation of all the models
 ```bash
-Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/
-Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
+Rscript ./4_model_performance_evaluation.R ./results/gapolyfitn_formulas_consistent.txt ./data/train_23_dbscan.tsv ./data/test_23.tsv ./data/cmcv_validation.tsv ./data/RF_XGB_train_data.tsv ./results/figures/
+```
+
+#### 5. Performance evaluation of all the models
+```bash
+Rscript ./4_model_performance_evaluation.R ./results/gapolyfitn_formulas_consistent.txt ./data/train_23_dbscan.tsv ./data/test_23.tsv ./data/cmcv_validation.tsv ./data/RF_XGB_train_data.tsv ./results/figures/
 ```
