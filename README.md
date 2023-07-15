@@ -22,5 +22,8 @@ run(script3)
 ```
 #### 4. Gather results from gapolyfitn run
 ```{r, engine = 'bash', eval = FALSE}
-bash ./3d_gather_gapolyfitn_results.sh 
+# pass the path to the directory containing results as an argument to the bash script
+bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_log
+bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classic_log
+bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classic_log_sqrt/
 ```
