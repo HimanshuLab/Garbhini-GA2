@@ -20,10 +20,15 @@ run(script2)
 script3 = fullfile('./3c_gapolyfitn_CMDs_classic_log_sqrt_logGA.m');
 run(script3)
 ```
-#### 4. Gather results from gapolyfitn run
+#### 4. Process the results from gapolyfitn run
 ```bash
 # pass the path to the directory containing results as an argument to the bash script
 bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_log
 bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classic_log
 bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classic_log_sqrt/
+```
+
+#### 5. Gather results in one file
+```bash
+(cat ./results/gapolyfitn_formulas_consistent_1.txt ; exec 0<./results/gapolyfitn_formulas_consistent_2.txt; read HEADER ; cat ; exec 0<./results/gapolyfitn_formulas_consistent_3.txt; read HEADER; cat) > ./results/gapolyfitn_formulas_consistent.txt
 ```
