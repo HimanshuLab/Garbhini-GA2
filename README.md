@@ -20,7 +20,7 @@ run(script2)
 script3 = fullfile('./3c_gapolyfitn_CMDs_classic_log_sqrt_logGA.m');
 run(script3)
 ```
-#### 4. Process the results from gapolyfitn run
+##### Process the results from gapolyfitn run
 ```bash
 # pass the path to the directory containing results as an argument to the bash script
 bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_log
@@ -31,3 +31,12 @@ bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classi
 (cat ./results/gapolyfitn_formulas_consistent_1.txt; exec 0<./results/gapolyfitn_formulas_consistent_2.txt; read HEADER; cat; exec 0<./results/gapolyfitn_formulas_consistent_3.txt; read HEADER; cat) > ./results/gapolyfitn_formulas_consistent.txt
 ```
 
+#### 4. Performance evaluation of all the models and selection of Garbhini-GA2
+```bash
+Rscript ./4_model_performance_evaluation.R ./results/gapolyfitn_formulas_consistent.txt ./data/train_23_dbscan.tsv ./data/test_23.tsv ./data/cmcv_validation.tsv ./data/RF_XGB_train_data.tsv ./results/figures/
+```
+
+#### 5. Compare Garbhini-GA2 against Hadlock and INTERGROWTH-21st formulae
+```bash
+Rscript ./5_garbhini_ga2_vs_published_formulas.R 
+```
