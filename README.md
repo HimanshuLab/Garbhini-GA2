@@ -12,5 +12,7 @@ Rscript 2a_hyperparameter_tuning_randomForest.R ./data/ ./results/
 Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
 ```
 #### 3. Run gapolyfitn in MATLAB
-```{r, engine = 'matlab', eval = FALSE}
+```Matlab
+script1 = fullfile('./3a_gapolyfitn_CMDs_log_logGA.m');
+run(script1)
 ```
