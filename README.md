@@ -30,5 +30,5 @@ bash ./3d_gather_gapolyfitn_results.sh ./results/output_gapolyfitn_matlab_classi
 
 #### 5. Gather results in one file
 ```bash
-(cat ./results/gapolyfitn_formulas_consistent_1.txt ; exec 0<./results/gapolyfitn_formulas_consistent_2.txt; read HEADER ; cat ; exec 0<./results/gapolyfitn_formulas_consistent_3.txt; read HEADER; cat) > ./results/gapolyfitn_formulas_consistent.txt
+(cat ./results/gapolyfitn_formulas_consistent_1.txt; exec 0<./results/gapolyfitn_formulas_consistent_2.txt; read HEADER; cat; exec 0<./results/gapolyfitn_formulas_consistent_3.txt; read HEADER; cat) > ./results/gapolyfitn_formulas_consistent.txt
 ```
