@@ -15,12 +15,8 @@ Rscript 2b_hyperparameter_tuning_xgboost.R ./data/ ./results/
 ```Matlab
 script1 = fullfile('./3a_gapolyfitn_CMDs_log_logGA.m');
 run(script1)
-```
-```Matlab
 script2 = fullfile('./3b_gapolyfitn_CMDs_classic_log_logGA.m');
 run(script2)
-```
-```Matlab
 script3 = fullfile('./3c_gapolyfitn_CMDs_classic_log_sqrt_logGA.m');
 run(script3)
 ```
