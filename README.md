@@ -20,3 +20,7 @@ run(script2)
 script3 = fullfile('./3c_gapolyfitn_CMDs_classic_log_sqrt_logGA.m');
 run(script3)
 ```
+#### 4. Gather results from gapolyfitn run
+```{r, engine = 'bash', eval = FALSE}
+bash ./3d_gather_gapolyfitn_results.sh 
+```
