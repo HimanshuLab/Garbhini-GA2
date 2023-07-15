@@ -1,6 +1,8 @@
 # Garbhini-GA2
 Script repository for the Garbhini-GA2 manuscript
 
+### STEPS
+
 #### 1. Remove outliers from the training data and generate the extended input used to train models 
 ```bash
 Rscript 1a_data_preparation.R ./data/ ./results/ #outlier removal
@@ -40,3 +42,6 @@ Rscript ./4_model_performance_evaluation.R ./results/gapolyfitn_formulas_consist
 ```bash
 Rscript ./5_garbhini_ga2_vs_published_formulas.R 
 ```
+### DEPENDENCIES
+[R version 4.3.1](https://cran.r-project.org/doc/manuals/r-patched/R-admin.html), R packages - [data.table](https://cran.r-project.org/web/packages/data.table/index.html), [optparse](https://cran.r-project.org/web/packages/optparse/index.html), [haven](https://cran.r-project.org/package=haven), 
+
